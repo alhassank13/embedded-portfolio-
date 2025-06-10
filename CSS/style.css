@@ -1,0 +1,122 @@
+/* Basic body styles and font */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fdfbf8; /* A very light, warm neutral */
+  color: #4a4a4a; /* Dark gray for main text */
+  line-height: 1.6; /* Improved readability */
+}
+
+/* Chart container responsive sizing */
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Constrain max width for aesthetics */
+  margin-left: auto;
+  margin-right: auto;
+  height: 350px; /* Fixed height for consistency */
+  max-height: 400px;
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    height: 400px; /* Larger height on larger screens */
+  }
+}
+
+/* Navigation link transitions and active state */
+.nav-link {
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #8b5cf6; /* A slightly deeper, more vibrant purple for hover/active */
+  border-bottom-color: #8b5cf6;
+}
+
+/* Project card hover effects */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e0e0e0; /* Subtle border for definition */
+}
+
+.project-card:hover {
+  transform: translateY(-8px); /* More pronounced lift effect */
+  box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15),
+    0 8px 10px -6px rgba(0, 0, 0, 0.08); /* Stronger, more modern shadow */
+}
+
+/* Timeline item content expansion */
+.timeline-item-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease-in-out; /* Slower transition for smoother animation */
+  padding-top: 0; /* Ensures no padding when closed */
+}
+
+.timeline-item.open .timeline-item-content {
+  max-height: 500px; /* Adjust as needed for content, make it generous */
+  padding-top: 1rem; /* Add padding when open */
+}
+
+/* Modal overlay and content animations */
+.modal-overlay {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  backdrop-filter: blur(5px); /* Modern blur effect */
+}
+
+.modal-overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  transform: translateY(30px); /* Slightly larger initial transform */
+  transition: transform 0.3s ease-in-out;
+}
+
+.modal-overlay.show .modal-content {
+  transform: translateY(0);
+}
+
+/* Back to top button visibility */
+.back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Timeline specific styles */
+.timeline-line {
+  left: 50%;
+  transform: translateX(-50%); /* Centering the line accurately */
+  background: linear-gradient(
+    to bottom,
+    #c084fc,
+    #8b5cf6
+  ); /* Gradient for the timeline line */
+  width: 3px; /* Slightly thicker line */
+  border-radius: 2px;
+}
+
+/* General section fade-in animation (for futuristic feel) */
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

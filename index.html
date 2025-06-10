@@ -4,15 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ALHassan Khaled - Embedded Systems Engineer</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Chosen Palette: Warm Neutral Harmony -->
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css" />
+    <!-- Chosen Palette: Modern Tech Vibe (Subtle dark blues, bright accents, light neutrals) -->
     <!-- Application Structure Plan: The SPA uses a top-down narrative structure. It starts with a clear identity (Header), flows into a chronological journey of growth (Interactive Timeline for Experience & Education), dives deep into capabilities (Skills Dashboard with a radar chart), provides tangible proof (Filterable Project Portfolio), and concludes with credentials (Publications/Certs). This structure was chosen to guide a recruiter logically from who the candidate is, to what they've done, what they can do, and the proof behind it, making it more intuitive and engaging than a traditional resume layout. -->
     <!-- Visualization & Content Choices: 
         - Timeline (Experience/Education): Goal=Show progression. Method=HTML/CSS/JS vertical timeline. Interaction=Click to expand details. Justification=Visually represents growth and combines related sections for better flow. Library=None.
@@ -20,79 +25,6 @@
         - Project Cards & Filters (Enhanced): Goal=Organize and showcase practical work; provide deep dive. Method=HTML/CSS grid with JS filtering and modal for full details. Interaction=Click buttons to filter projects by technology, click card to open detailed modal. Justification=Allows recruiters to instantly find evidence of specific, required skills and then explore project specifics without leaving the page. Library=None.
         - Back to Top Button: Goal=Improve navigation. Method=Fixed HTML/CSS button with JS scroll listener. Interaction=Click to smoothly scroll to top. Justification=Enhances usability for longer pages. Library=None.
     -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: #fdfbf8;
-        color: #4a4a4a;
-      }
-      .chart-container {
-        position: relative;
-        width: 100%;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 350px;
-        max-height: 400px;
-      }
-      @media (min-width: 768px) {
-        .chart-container {
-          height: 400px;
-        }
-      }
-      .nav-link {
-        transition: color 0.3s, border-bottom-color 0.3s;
-        border-bottom: 2px solid transparent;
-      }
-      .nav-link:hover,
-      .nav-link.active {
-        color: #c084fc; /* A gentle purple accent */
-        border-bottom-color: #c084fc;
-      }
-      .project-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: pointer;
-      }
-      .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      }
-      .timeline-item-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease-in-out;
-      }
-      .timeline-item.open .timeline-item-content {
-        max-height: 500px; /* Adjust as needed for content */
-      }
-      .modal-overlay {
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-      }
-      .modal-overlay.show {
-        visibility: visible;
-        opacity: 1;
-      }
-      .modal-content {
-        transform: translateY(20px);
-        transition: transform 0.3s ease-in-out;
-      }
-      .modal-overlay.show .modal-content {
-        transform: translateY(0);
-      }
-      .back-to-top {
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-      }
-      .back-to-top.show {
-        opacity: 1;
-        visibility: visible;
-      }
-    </style>
   </head>
   <body class="antialiased">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
@@ -131,7 +63,7 @@
 
       <!-- Navigation -->
       <nav
-        class="sticky top-0 bg-opacity-80 bg-FDFBF8 backdrop-blur-sm z-50 py-4 mb-12 border-b border-gray-200"
+        class="sticky top-0 bg-opacity-80 bg-fdfbf8 backdrop-blur-sm z-50 py-4 mb-12 border-b border-gray-200"
       >
         <ul class="flex justify-center space-x-6 md:space-x-8">
           <li>
@@ -154,7 +86,7 @@
       <!-- Main Content -->
       <main>
         <!-- Timeline Section -->
-        <section id="timeline" class="py-12">
+        <section id="timeline" class="py-12 section-fade-in">
           <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">
             Career & Education Timeline
           </h2>
@@ -167,15 +99,17 @@
           </p>
           <div class="relative wrap overflow-hidden p-10 h-full">
             <div
-              class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border"
-              style="left: 50%"
+              class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border timeline-line"
             ></div>
             <!-- Timeline Items will be injected by JS -->
           </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-12 bg-white rounded-xl shadow-sm">
+        <section
+          id="skills"
+          class="py-12 bg-white rounded-xl shadow-sm section-fade-in"
+        >
           <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">
             Technical Skills Dashboard
           </h2>
@@ -196,7 +130,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-12">
+        <section id="projects" class="py-12 section-fade-in">
           <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">
             Project Portfolio
           </h2>
@@ -223,7 +157,10 @@
         </section>
 
         <!-- Credentials Section -->
-        <section id="credentials" class="py-12 bg-white rounded-xl shadow-sm">
+        <section
+          id="credentials"
+          class="py-12 bg-white rounded-xl shadow-sm section-fade-in"
+        >
           <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">
             Credentials & Publications
           </h2>
@@ -301,502 +238,7 @@
       <!-- Up arrow Unicode character -->
     </button>
 
-    <script>
-      const timelineData = [
-        {
-          side: "right",
-          date: "Apr 2024 - Present",
-          title: "Data Analysis & O&M Engineer",
-          company: "Telecom Egypt",
-          details: [
-            "Resolved over 50+ complex fiber optic transmission issues monthly, ensuring 99.9% network uptime.",
-            "Automated data reporting workflows using Python and Power BI, reducing analysis time by 60%.",
-            "Developed and standardized 10+ testing protocols, improving system diagnostics accuracy.",
-          ],
-          type: "work",
-        },
-        {
-          side: "left",
-          date: "Feb 2024 - May 2024",
-          title: "Automotive Embedded Systems",
-          company: "NTI (National Telecommunication Institute)",
-          details: [
-            "Mastered FreeRTOS, STM32 programming, and ADAS development.",
-            "Graduation project: Bluetooth-controlled RC car with collision detection.",
-          ],
-          type: "education",
-        },
-        {
-          side: "right",
-          date: "Aug 2022 - Sept 2023",
-          title: "Arduino & Robotics Instructor",
-          company: "BCreative Academy",
-          details: [
-            "Delivered 12-week IoT/embedded curriculum to 50+ students (ESP8266, Firebase, circuit design).",
-            "Supervised 10+ capstone projects; 85% reached full functionality.",
-            "Guided students in building IoT products like smart meters and RC cars.",
-          ],
-          type: "work",
-        },
-        {
-          side: "left",
-          date: "Feb 2023 - June 2023",
-          title: "Junior Teaching Assistant",
-          company: "Nile University",
-          details: [
-            "Supported 20+ students in sensor and semiconductor lab environments.",
-            "Guided students in testing and verifying analog/digital components such as ADCs, sensors, and microcontroller I/O.",
-            "Assisted in reviewing design specifications and system requirements for embedded systems projects.",
-          ],
-          type: "work",
-        },
-        {
-          side: "right",
-          date: "Sept 2018 - June 2023",
-          title: "B.Sc. Electronics and Communications Engineering",
-          company: "Nile University",
-          details: [
-            "GPA: 3.5/4.0 | Specialized in embedded systems design.",
-            "Thesis: AI-based self-healing algorithms for telecom networks (Published in IEEE).",
-          ],
-          type: "education",
-        },
-      ];
-
-      const skillsData = {
-        categories: [
-          {
-            name: "Embedded Development",
-            skills: [
-              "C",
-              "C++",
-              "Firmware",
-              "STM32",
-              "AVR",
-              "ARM Cortex-M/R",
-              "ESP32",
-              "RISC-V (Conceptual)",
-              "FreeRTOS",
-              "Embedded Linux",
-              "UART",
-              "SPI",
-              "CAN",
-              "I2C",
-              "GPIO",
-              "Real-Time Systems",
-            ],
-          },
-          {
-            name: "Hardware & Debugging",
-            skills: [
-              "Hardware Integration",
-              "Board Bring-up",
-              "Schematics Reading",
-              "JTAG/SWD Debugging",
-              "Oscilloscopes",
-              "Logic Analyzers",
-            ],
-          },
-          {
-            name: "IoT Technologies",
-            skills: ["ESP8266", "MQTT", "Firebase", "Blynk IoT"],
-          },
-          {
-            name: "Tools & Environments",
-            skills: [
-              "STM32CubeIDE",
-              "Keil",
-              "Eclipse",
-              "Docker",
-              "Git (Version Control)",
-              "MATLAB",
-              "LTspice",
-              "Cadence",
-              "VS Code",
-              "Unix/Linux",
-            ],
-          },
-          {
-            name: "Data Analysis",
-            skills: ["Python", "Power BI", "Excel", "SQL"],
-          },
-          {
-            name: "Soft Skills",
-            skills: [
-              "Collaboration",
-              "Problem-solving",
-              "Innovation",
-              "Dedicated",
-              "Planning",
-              "Technical Writing",
-            ],
-          },
-        ],
-        radarData: {
-          labels: ["Embedded Dev", "Hardware", "IoT", "Tools", "Data Analysis"],
-          values: [5, 4, 3, 4, 3],
-          descriptions: [
-            "Expert in Embedded Development (C/C++, RTOS, MCUs, Firmware)",
-            "Advanced skills in Hardware Debugging, Integration, and Analysis",
-            "Proficient in IoT technologies including ESP8266, MQTT, and Firebase",
-            "Advanced usage of various development tools, IDEs, and Linux environments",
-            "Proficient in Data Analysis with Python, Power BI, Excel, and SQL",
-          ],
-        },
-      };
-
-      const projectsData = [
-        {
-          title: "Smart ADAS for RC Vehicles",
-          tags: ["STM32", "FreeRTOS", "Embedded"],
-          description:
-            "Implemented cruise control, auto-parking, and emergency alerts using STM32F103C6, demonstrating strong firmware and protocol development skills.",
-          fullDescription:
-            "Designed and implemented a miniature Advanced Driver-Assistance System (ADAS) for RC vehicles using an STM32F103C6 microcontroller and FreeRTOS. Key features included adaptive cruise control, autonomous parking, and GPS/SIM module integration for emergency alerts. Developed a robust UART protocol for seamless HMI and control MCU coordination, validated through over 1,000 test iterations with 100% reliability. This project showcased expertise in real-time embedded systems, sensor fusion, and inter-device communication.",
-          link: "https://github.com/alhassank13",
-        },
-        {
-          title: "Door Locker Security System",
-          tags: ["ATmega32", "Embedded"],
-          description:
-            "Developed a layered security system with inter-MCU UART communication, custom drivers, and a 3-attempt lockout mechanism.",
-          fullDescription:
-            "Engineered a secure door locker system utilizing an ATmega32 microcontroller. The architecture featured inter-MCU UART communication for distributed control and a robust 3-attempt lockout mechanism with a 1-minute buzzer alarm for security. Developed custom drivers for LCD (4-bit mode), Timer1 (interrupt-based), and buzzer, alongside a precise motor control system for door locking/unlocking (15s CW/3s hold/15s CCW). This project highlighted low-level driver development and robust state machine design.",
-          link: "https://github.com/alhassank13",
-        },
-        {
-          title: "AI-Optimized Telecom Network",
-          tags: ["AI/ML", "Data Analysis"],
-          description:
-            "Graduation project that reduced network outages by 25% using One-Class SVM and self-healing protocols on real-world data.",
-          fullDescription:
-            "As part of my graduation thesis, I developed AI-based self-healing algorithms for telecom networks. This involved applying One-Class SVM to detect and reduce sleeping cell outages by 25% using real-world data from Orange Egypt. The project demonstrated strong skills in machine learning, data analysis, and problem-solving within complex network environments, aiming to improve network reliability and performance.",
-          link: "https://github.com/alhassank13",
-        },
-        {
-          title: "ESP-Smart-Meter",
-          tags: ["ESP8266", "IoT", "Data Analysis"],
-          description:
-            "Built an IoT smart meter using Raspberry Pi and ESP8266 with 92% anomaly detection accuracy, reducing theft in a pilot deployment.",
-          fullDescription:
-            "Designed and piloted an IoT smart utility monitoring prototype. This system, built on a Raspberry Pi and ESP8266, achieved 92% anomaly detection accuracy for electricity consumption, leading to a 30% reduction in theft cases during its pilot deployment. The project involved sensor interfacing, cloud communication (Firebase), and data analytics for actionable insights, showcasing practical IoT development and data-driven problem-solving.",
-          link: "https://github.com/alhassank13",
-        },
-      ];
-
-      const credentialsData = {
-        certifications: [
-          "Embedded Systems Diploma Nanodegree (2023)",
-          "CCNA v7 Nanodegree-NTI (2022)",
-          "IoT Nanodegree-Orange Digital Center (2022)",
-        ],
-        publications: [
-          {
-            title:
-              "Detecting Sleeping Cells in Cellular Networks Based on One-Class SVM and Deep Autoencoders",
-            details:
-              "Dec 2023 | Proceedings of the Japan-Africa Conference on Electronics, Communications and Computations (JAC-ECC 2023)",
-          },
-        ],
-      };
-
-      document.addEventListener("DOMContentLoaded", () => {
-        // Populate Timeline
-        const timelineContainer = document.querySelector(".relative.wrap");
-        timelineData.forEach((item) => {
-          const alignment = item.side === "right" ? "flex-row-reverse" : "";
-          const iconBg =
-            item.type === "work" ? "bg-purple-500" : "bg-green-500";
-          const timelineItem = `
-                    <div class="mb-8 flex justify-between items-center w-full ${alignment} timeline-item">
-                        <div class="order-1 w-5/12"></div>
-                        <div class="z-20 flex items-center order-1 ${iconBg} shadow-xl w-8 h-8 rounded-full">
-                            <h1 class="mx-auto font-semibold text-lg text-white">${
-                              item.type === "work" ? "W" : "E"
-                            }</h1>
-                        </div>
-                        <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 cursor-pointer">
-                            <h3 class="font-bold text-gray-800 text-xl">${
-                              item.title
-                            }</h3>
-                            <p class="text-sm font-medium text-gray-600">${
-                              item.company
-                            } | <span class="text-sm text-gray-500">${
-            item.date
-          }</span></p>
-                            <div class="timeline-item-content mt-2">
-                                <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                                    ${item.details
-                                      .map((d) => `<li>${d}</li>`)
-                                      .join("")}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                `;
-          timelineContainer.innerHTML += timelineItem;
-        });
-
-        document
-          .querySelectorAll(".timeline-item .cursor-pointer")
-          .forEach((item) => {
-            item.parentElement.addEventListener("click", () => {
-              item.parentElement.classList.toggle("open");
-            });
-          });
-
-        // Init Radar Chart
-        const ctx = document
-          .getElementById("skillsRadarChart")
-          .getContext("2d");
-        new Chart(ctx, {
-          type: "radar",
-          data: {
-            labels: skillsData.radarData.labels,
-            datasets: [
-              {
-                label: "Competency Level",
-                data: skillsData.radarData.values,
-                backgroundColor: "rgba(192, 132, 252, 0.2)",
-                borderColor: "rgba(192, 132, 252, 1)",
-                pointBackgroundColor: "rgba(192, 132, 252, 1)",
-                pointBorderColor: "#fff",
-                pointHoverBackgroundColor: "#fff",
-                pointHoverBorderColor: "rgba(192, 132, 252, 1)",
-              },
-            ],
-          },
-          options: {
-            maintainAspectRatio: false,
-            scales: {
-              r: {
-                angleLines: { color: "rgba(0, 0, 0, 0.1)" },
-                grid: { color: "rgba(0, 0, 0, 0.1)" },
-                pointLabels: { font: { size: 14 }, color: "#4A4A4A" },
-                ticks: {
-                  backdropColor: "#FDFBF8",
-                  color: "grey",
-                  stepSize: 1,
-                  beginAtZero: true,
-                  max: 5,
-                },
-              },
-            },
-            plugins: {
-              legend: {
-                display: false,
-              },
-              tooltip: {
-                callbacks: {
-                  label: function (context) {
-                    return skillsData.radarData.descriptions[context.dataIndex];
-                  },
-                },
-              },
-            },
-          },
-        });
-
-        // Populate Skills List
-        const skillsListContainer = document.getElementById("skills-list");
-        skillsData.categories.forEach((category) => {
-          const categoryHtml = `
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-lg text-gray-700 mb-2">${
-                          category.name
-                        }</h4>
-                        <div class="flex flex-wrap gap-2">
-                            ${category.skills
-                              .map(
-                                (skill) =>
-                                  `<span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">${skill}</span>`
-                              )
-                              .join("")}
-                        </div>
-                    </div>
-                `;
-          skillsListContainer.innerHTML += categoryHtml;
-        });
-
-        // Populate Projects
-        const projectFiltersContainer =
-          document.getElementById("project-filters");
-        const projectGrid = document.getElementById("project-grid");
-        const allTags = [
-          "All",
-          ...new Set(projectsData.flatMap((p) => p.tags)),
-        ];
-
-        projectFiltersContainer.innerHTML = allTags
-          .map(
-            (tag) =>
-              `<button class="filter-btn px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                tag === "All"
-                  ? "bg-purple-500 text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-purple-200"
-              }" data-filter="${tag}">${tag}</button>`
-          )
-          .join("");
-
-        /*************  ✨ Windsurf Command ⭐  *************/
-        /**
-         * Renders the project cards based on the given filter.
-         * @param {string} [filter="All"] - The tag to filter projects by. If "All", all projects are rendered.
-         */
-        /*******  4581e7a0-0f34-4b23-bda9-a85670006e47  *******/
-        const renderProjects = (filter = "All") => {
-          projectGrid.innerHTML = "";
-          const filteredProjects =
-            filter === "All"
-              ? projectsData
-              : projectsData.filter((p) => p.tags.includes(filter));
-
-          filteredProjects.forEach((project, index) => {
-            const card = `
-                        <div class="project-card bg-white rounded-lg shadow-md overflow-hidden p-6 border border-gray-200" data-project-index="${index}">
-                            <h4 class="font-bold text-lg text-gray-800">${
-                              project.title
-                            }</h4>
-                            <div class="flex flex-wrap gap-2 my-2">
-                                ${project.tags
-                                  .map(
-                                    (tag) =>
-                                      `<span class="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-1 rounded-full">${tag}</span>`
-                                  )
-                                  .join("")}
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">${
-                              project.description
-                            }</p>
-                            <span class="font-medium text-purple-600 hover:text-purple-800 transition-colors cursor-pointer">Learn More &rarr;</span>
-                        </div>
-                    `;
-            projectGrid.innerHTML += card;
-          });
-
-          document.querySelectorAll(".project-card").forEach((card) => {
-            card.addEventListener("click", (event) => {
-              const index = event.currentTarget.dataset.projectIndex;
-              showProjectModal(projectsData[index]);
-            });
-          });
-        };
-
-        document.querySelectorAll(".filter-btn").forEach((button) => {
-          button.addEventListener("click", () => {
-            document
-              .querySelector(".filter-btn.bg-purple-500")
-              .classList.replace("bg-purple-500", "bg-gray-200");
-            document
-              .querySelector(".filter-btn.text-white")
-              .classList.replace("text-white", "text-gray-700");
-            button.classList.add("bg-purple-500", "text-white");
-            renderProjects(button.dataset.filter);
-          });
-        });
-
-        renderProjects();
-
-        // Populate Credentials
-        const certsList = document.getElementById("certifications-list");
-        credentialsData.certifications.forEach((cert) => {
-          certsList.innerHTML += `<li><span class="font-semibold text-purple-600 mr-2">✓</span>${cert}</li>`;
-        });
-
-        const pubsList = document.getElementById("publications-list");
-        credentialsData.publications.forEach((pub) => {
-          pubsList.innerHTML += `
-                    <div>
-                        <p class="font-semibold text-gray-800">${pub.title}</p>
-                        <p class="text-sm text-gray-500">${pub.details}</p>
-                    </div>`;
-        });
-
-        // Smooth scrolling for nav links
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-              behavior: "smooth",
-            });
-          });
-        });
-
-        // Active nav link on scroll
-        const sections = document.querySelectorAll("section");
-        const navLi = document.querySelectorAll("nav ul li a");
-        window.onscroll = () => {
-          var current = "";
-
-          sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 60) {
-              current = section.getAttribute("id");
-            }
-          });
-
-          navLi.forEach((a) => {
-            a.classList.remove("active");
-            if (a.getAttribute("href") == `#${current}`) {
-              a.classList.add("active");
-            }
-          });
-        };
-
-        // Project Modal Logic
-        const projectModal = document.getElementById("projectModal");
-        const modalCloseButton = projectModal.querySelector(".modal-close");
-        const modalProjectTitle = document.getElementById(
-          "modal-project-title"
-        );
-        const modalProjectTags = document.getElementById("modal-project-tags");
-        const modalProjectDescription = document.getElementById(
-          "modal-project-description"
-        );
-        const modalProjectLink = document.getElementById("modal-project-link");
-
-        function showProjectModal(project) {
-          modalProjectTitle.textContent = project.title;
-          modalProjectTags.innerHTML = project.tags
-            .map(
-              (tag) =>
-                `<span class="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-1 rounded-full">${tag}</span>`
-            )
-            .join("");
-          modalProjectDescription.textContent = project.fullDescription;
-          modalProjectLink.href = project.link;
-          projectModal.classList.add("show");
-        }
-
-        function hideProjectModal() {
-          projectModal.classList.remove("show");
-        }
-
-        modalCloseButton.addEventListener("click", hideProjectModal);
-        projectModal.addEventListener("click", (event) => {
-          if (event.target === projectModal) {
-            hideProjectModal();
-          }
-        });
-
-        // Back to Top Button Logic
-        const backToTopBtn = document.getElementById("backToTopBtn");
-        window.addEventListener("scroll", () => {
-          if (window.pageYOffset > 300) {
-            // Show button after scrolling 300px
-            backToTopBtn.classList.add("show");
-          } else {
-            backToTopBtn.classList.remove("show");
-          }
-        });
-
-        backToTopBtn.addEventListener("click", () => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        });
-      });
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="JS/main.js" defer></script>
   </body>
 </html>
