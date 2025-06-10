@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Data for timeline, skills, and projects
+  // Data for timeline, skills, and projects extracted and consolidated from both ALHassanKhaled-v1.5.pdf and ALHassanKhaled-v2.0.pdf
   const timelineData = [
     {
       side: "right",
@@ -7,16 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Data Analysis & O&M Engineer",
       company: "Telecom Egypt",
       details: [
-        "Resolved over 50+ complex fiber optic transmission issues monthly, ensuring 99.9% network uptime.",
-        "Automated data reporting workflows using Python and Power BI, reducing analysis time by 60%.",
-        "Developed and standardized 10+ testing protocols, improving system diagnostics accuracy.",
+        "Resolved over 50+ complex fiber optic transmission issues monthly, ensuring 99.9% network uptime across national and international links.",
+        "Automated data reporting workflows using Python and Power BI, reducing analysis time by 60% and enabling faster executive decisions.",
+        "Developed and standardized 10+ testing protocols, improving system diagnostics accuracy and reducing troubleshooting time by 40%.",
+        "Modified diagnostic tools and automation scripts to improve network analysis efficiency by 60%, aligning with customer expectations for reliability and speed.",
       ],
       type: "work",
     },
     {
       side: "left",
       date: "Feb 2024 - May 2024",
-      title: "Automotive Embedded Systems",
+      title: "Automotive Embedded Systems (Certification)",
       company: "NTI (National Telecommunication Institute)",
       details: [
         "Mastered FreeRTOS, STM32 programming, and ADAS development.",
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Delivered 12-week IoT/embedded curriculum to 50+ students (ESP8266, Firebase, circuit design).",
         "Supervised 10+ capstone projects; 85% reached full functionality.",
         "Guided students in building IoT products like smart meters and RC cars.",
+        "Built and piloted a smart utility monitoring prototype.",
       ],
       type: "work",
     },
@@ -42,20 +44,53 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Junior Teaching Assistant",
       company: "Nile University",
       details: [
-        "Supported 20+ students in sensor and semiconductor lab environments.",
+        "Supported 20+ students in sensor and semiconductor lab environments over a semester, achieving a 95% lab report completion rate.",
         "Guided students in testing and verifying analog/digital components such as ADCs, sensors, and microcontroller I/O.",
         "Assisted in reviewing design specifications and system requirements for embedded systems projects.",
+        "Evaluated and provided feedback for 10+ semiconductor-related embedded projects, ensuring academic consistency and improving project outcomes by 10%.",
       ],
       type: "work",
     },
     {
       side: "right",
-      date: "Sept 2018 - June 2023",
+      date: "Sept 2018 - July 2023",
       title: "B.Sc. Electronics and Communications Engineering",
       company: "Nile University",
       details: [
         "GPA: 3.5/4.0 | Specialized in embedded systems design.",
-        "Thesis: AI-based self-healing algorithms for telecom networks (Published in IEEE).",
+        "Thesis: AI-based self-healing algorithms for telecom networks (Orange Egypt), integrating Python, cloud monitoring, and infrastructure reliability (Published in IEEE).",
+      ],
+      type: "education",
+    },
+    {
+      side: "left",
+      date: "June 2022 - Sept 2022",
+      title: "Junior Research Assistant",
+      company: "WINC, Nile University",
+      details: [
+        "Conducted research in digital twins, automation, and AI-based network optimization to improve service reliability.",
+      ],
+      type: "work",
+    },
+    {
+      side: "right",
+      date: "Jul 2024 - Nov 2024",
+      title: "Data Analysis Course",
+      company: "Amit",
+      details: [
+        "Completed a comprehensive data analysis course.",
+        "Gained proficiency in various data analysis techniques and tools.",
+      ],
+      type: "education",
+    },
+    {
+      side: "left",
+      date: "Jan 2025 - Present",
+      title: "Frontend Web Development Bootcamp",
+      company: "Route Academy",
+      details: [
+        "Mastered React, Redux, Next.js, Bootstrap, TypeScript, TanStack Query.",
+        "Built full-featured responsive applications with user authentication, chat systems, and analytics dashboards using Firebase and HTML/CSS.",
       ],
       type: "education",
     },
@@ -68,36 +103,71 @@ document.addEventListener("DOMContentLoaded", () => {
         skills: [
           "C",
           "C++",
-          "Firmware",
           "STM32",
           "AVR",
-          "ARM Cortex-M/R",
-          "ESP32",
-          "RISC-V (Conceptual)",
+          "ARM Cortex",
           "FreeRTOS",
           "Embedded Linux",
           "UART",
           "SPI",
           "CAN",
+          "LIN",
           "I2C",
           "GPIO",
           "Real-Time Systems",
+          "Sensor Interfaces",
+          "Bluetooth Modules",
         ],
       },
       {
-        name: "Hardware & Debugging",
+        name: "Frontend & Web Development",
         skills: [
-          "Hardware Integration",
-          "Board Bring-up",
-          "Schematics Reading",
-          "JTAG/SWD Debugging",
-          "Oscilloscopes",
-          "Logic Analyzers",
+          "React",
+          "JavaScript",
+          "TypeScript",
+          "Next.js",
+          "HTML",
+          "CSS",
+          "Tailwind",
+          "Redux",
+          "React Router",
+          "Sass",
+          "Bootstrap",
+          "Responsive Layouts",
+          "Form Validation (Formik, Yup)",
+          "Chat UI",
+          "Dashboard UI",
+        ],
+      },
+      {
+        name: "Programming & Scripting",
+        skills: ["Python"], // C and C++ are covered in Embedded, JavaScript in Frontend
+      },
+      {
+        name: "Cloud & DevOps Tools",
+        skills: [
+          "Firebase",
+          "GitHub",
+          "JSON APIs",
+          "VS Code",
+          "Automation Scripts",
+          "Docker",
+        ], // Docker added from v1.5 tools
+      },
+      {
+        name: "Data Analysis & Visualization",
+        skills: [
+          "Python",
+          "Power BI",
+          "Excel",
+          "SQL",
+          "Data Pipelines",
+          "Reporting",
         ],
       },
       {
         name: "IoT Technologies",
-        skills: ["ESP8266", "MQTT", "Firebase", "Blynk IoT"],
+        skills: ["ESP8266", "MQTT", "Firebase", "Blynk IoT", "Arduino"],
       },
       {
         name: "Tools & Environments",
@@ -105,40 +175,62 @@ document.addEventListener("DOMContentLoaded", () => {
           "STM32CubeIDE",
           "Keil",
           "Eclipse",
-          "Docker",
-          "Git (Version Control)",
+          "Git",
           "MATLAB",
           "LTspice",
           "Cadence",
-          "VS Code",
           "Unix/Linux",
+          "RTOS environments",
         ],
       },
       {
-        name: "Data Analysis",
-        skills: ["Python", "Power BI", "Excel", "SQL"],
+        name: "Computer Science & Engineering Foundations",
+        skills: ["Computer Engineering", "Data Structures", "Code Reviews"],
       },
       {
-        name: "Soft Skills",
+        name: "Project Management & Soft Skills",
         skills: [
+          "Project Planning",
+          "Estimating durations",
+          "Schedules",
+          "Investigating faults",
           "Collaboration",
-          "Problem-solving",
+          "Specification interpretation",
+          "Product Flow understanding",
+          "Customer Needs",
+          "Supportability",
+          "Responsibilities",
           "Innovation",
           "Dedicated",
+          "Assists",
+          "Reflect",
+          "Access",
           "Planning",
-          "Technical Writing",
+          "Technical Writing", // From v1.5 "Writing"
+          "Team Collaboration",
+          "Participating",
+          "Reliability",
+          "Feedback Handling",
         ],
       },
     ],
     radarData: {
-      labels: ["Embedded Dev", "Hardware", "IoT", "Tools", "Data Analysis"],
-      values: [5, 4, 3, 4, 3],
+      labels: [
+        "Embedded Dev",
+        "Frontend Dev",
+        "Data Analysis",
+        "IoT",
+        "Cloud/DevOps",
+        "Soft Skills",
+      ],
+      values: [5, 4, 4, 3, 4, 4], // Adjusted values based on broad categories and consolidated skills
       descriptions: [
-        "Expert in Embedded Development (C/C++, RTOS, MCUs, Firmware)",
-        "Advanced skills in Hardware Debugging, Integration, and Analysis",
-        "Proficient in IoT technologies including ESP8266, MQTT, and Firebase",
-        "Advanced usage of various development tools, IDEs, and Linux environments",
-        "Proficient in Data Analysis with Python, Power BI, Excel, and SQL",
+        "Expert in Embedded Development (C/C++, RTOS, MCUs, Firmware, Hardware)",
+        "Proficient in Frontend Web Development (React, JavaScript, modern frameworks)",
+        "Proficient in Data Analysis & Visualization (Python, Power BI, SQL, data pipelines)",
+        "Experienced in IoT technologies (ESP8266, MQTT, Firebase, Arduino)",
+        "Skilled in Cloud & DevOps tools (Firebase, GitHub, automation scripts, Docker)",
+        "Strong soft skills including collaboration, problem-solving, planning, and technical writing",
       ],
     },
   };
@@ -146,16 +238,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectsData = [
     {
       title: "Smart ADAS for RC Vehicles",
-      tags: ["STM32", "FreeRTOS", "Embedded"],
+      tags: ["STM32", "FreeRTOS", "Embedded", "Mobile App"],
       description:
-        "Implemented cruise control, auto-parking, and emergency alerts using STM32F103C6, demonstrating strong firmware and protocol development skills.",
+        "Implemented cruise control, auto-parking, emergency alerts using STM32, built a mobile app for control via Bluetooth, and developed a robust UART protocol.",
       fullDescription:
-        "Designed and implemented a miniature Advanced Driver-Assistance System (ADAS) for RC vehicles using an STM32F103C6 microcontroller and FreeRTOS. Key features included adaptive cruise control, autonomous parking, and GPS/SIM module integration for emergency alerts. Developed a robust UART protocol for seamless HMI and control MCU coordination, validated through over 1,000 test iterations with 100% reliability. This project showcased expertise in real-time embedded systems, sensor fusion, and inter-device communication.",
+        "Designed and implemented a miniature Advanced Driver-Assistance System (ADAS) for RC vehicles using an STM32F103C6 microcontroller and FreeRTOS. Key features included adaptive cruise control, autonomous parking, and GPS/SIM module integration for cloud-connected emergency alerts. Developed a robust UART protocol (8-bit data, even parity) for seamless HMI and control MCU coordination, validated through over 1,000 test iterations with 100% reliability. Additionally, built a mobile application for controlling the RC car via Bluetooth using an Android interface, and implemented embedded state-machine architecture with RTOS, tested for reliability under different conditions. This project showcased expertise in real-time embedded systems, sensor fusion, inter-device communication, and mobile integration.",
       link: "https://github.com/alhassank13",
     },
     {
       title: "Door Locker Security System",
-      tags: ["ATmega32", "Embedded"],
+      tags: ["ATmega32", "Embedded", "Security"],
       description:
         "Developed a layered security system with inter-MCU UART communication, custom drivers, and a 3-attempt lockout mechanism.",
       fullDescription:
@@ -163,43 +255,103 @@ document.addEventListener("DOMContentLoaded", () => {
       link: "https://github.com/alhassank13",
     },
     {
-      title: "AI-Optimized Telecom Network",
-      tags: ["AI/ML", "Data Analysis"],
+      title: "AI-Optimized Telecom Network (Graduation Project)",
+      tags: ["AI/ML", "Data Analysis", "Network", "Python"],
       description:
-        "Graduation project that reduced network outages by 25% using One-Class SVM and self-healing protocols on real-world data.",
+        "Reduced network outages by 25% using One-Class SVM and applied self-healing protocols to Orange Egypt data, integrating Python and cloud monitoring.",
       fullDescription:
-        "As part of my graduation thesis, I developed AI-based self-healing algorithms for telecom networks. This involved applying One-Class SVM to detect and reduce sleeping cell outages by 25% using real-world data from Orange Egypt. The project demonstrated strong skills in machine learning, data analysis, and problem-solving within complex network environments, aiming to improve network reliability and performance.",
+        "As part of my graduation thesis, I developed AI-based self-healing algorithms for telecom networks. This involved applying One-Class SVM to detect and reduce sleeping cell outages by 25% using real-world data from Orange Egypt. The project integrated Python, cloud monitoring, and infrastructure reliability mechanisms, demonstrating strong skills in machine learning, data analysis, and problem-solving within complex network environments, aiming to improve network reliability and performance.",
       link: "https://github.com/alhassank13",
     },
     {
       title: "ESP-Smart-Meter",
-      tags: ["ESP8266", "IoT", "Data Analysis"],
+      tags: ["ESP8266", "IoT", "Data Analysis", "Raspberry Pi"],
       description:
-        "Built an IoT smart meter using Raspberry Pi and ESP8266 with 92% anomaly detection accuracy, reducing theft in a pilot deployment.",
+        "Built an IoT smart meter with 92% anomaly detection accuracy using Raspberry Pi and ESP8266, reducing theft cases by 30% in a pilot deployment.",
       fullDescription:
         "Designed and piloted an IoT smart utility monitoring prototype. This system, built on a Raspberry Pi and ESP8266, achieved 92% anomaly detection accuracy for electricity consumption, leading to a 30% reduction in theft cases during its pilot deployment. The project involved sensor interfacing, cloud communication (Firebase), and data analytics for actionable insights, showcasing practical IoT development and data-driven problem-solving.",
       link: "https://github.com/alhassank13",
+    },
+    {
+      title: "E-Commerce Web App",
+      tags: ["React", "Firebase", "Frontend", "Web Development"],
+      description:
+        "Developed a cloud-based e-commerce platform with product filtering, cart management, checkout system, and wishlist functionality.",
+      fullDescription:
+        "Developed a comprehensive cloud-based e-commerce platform with essential features including product filtering, efficient cart management, a secure checkout system, and personalized wishlist functionality. The tech stack primarily included React for the frontend, Formik and Yup for robust form validation, Tailwind CSS for styling, and Firebase Authentication for user management. Implemented advanced UX features such as offline detection, error boundaries for graceful error handling, and toast notifications for enhanced user feedback, ensuring a smooth and reliable shopping experience.",
+      link: "https://github.com/alhassank13", // Placeholder, add actual link if available
+    },
+    {
+      title: "Chat Dashboard Interface",
+      tags: ["AI", "Frontend", "Web Development", "UI/UX"],
+      description:
+        "Designed an AI agent chat UI interface supporting real-time user interaction, including live chat threads and feedback logging.",
+      fullDescription:
+        "Designed and developed an intuitive AI agent chat UI interface to support real-time user interaction. Key functionalities included live chat threads for dynamic conversations, comprehensive feedback logging for continuous improvement, and simulated LLM API integration for realistic agent responses. This project demonstrated strong skills in frontend development, responsive UI/UX design, and integration with AI simulation for interactive applications.",
+      link: "https://github.com/alhassank13", // Placeholder, add actual link if available
     },
   ];
 
   const credentialsData = {
     certifications: [
-      "Embedded Systems Diploma Nanodegree (2023)",
-      "CCNA v7 Nanodegree-NTI (2022)",
-      "IoT Nanodegree-Orange Digital Center (2022)",
+      "Embedded Systems Diploma - NTI (2024)",
+      "CCNA v7 Nanodegree - NTI (2022)",
+      "IoT Nanodegree - Orange Digital Center (2022)",
+      "Route Frontend Web Development Bootcamp (2025 - Present)",
+      "Data Analysis Course - Amit (Jul 2024 - Nov 2024)",
+      "Testing Foundations Track - Udacity",
     ],
     publications: [
       {
         title:
           "Detecting Sleeping Cells in Cellular Networks Based on One-Class SVM and Deep Autoencoders",
         details:
-          "Dec 2023 | Proceedings of the Japan-Africa Conference on Electronics, Communications and Computations (JAC-ECC 2023)",
+          "Dec 2023 | 10.1109/JAC-ECC61002.2023.10479631 (Proceedings of the Japan-Africa Conference on Electronics, Communications and Computations (JAC-ECC 2023))",
       },
     ],
   };
 
   // --- Populate Timeline Section ---
   const timelineContainer = document.querySelector(".relative.wrap");
+  // Sort timeline data chronologically before rendering (most recent first)
+  timelineData.sort((a, b) => {
+    const parseDate = (dateStr) => {
+      const [start, end] = dateStr.split(" - ");
+      let endDate;
+      if (end === "Present" || end === "Till Now") {
+        endDate = new Date(); // Current date for ongoing
+      } else if (end) {
+        // Handle cases like "Nov 2024" or "2024"
+        const endParts = end.split(" ");
+        if (endParts.length === 2) {
+          // e.g., "Nov 2024"
+          endDate = new Date(
+            endParts[1],
+            new Date(Date.parse(endParts[0] + " 1, 2000")).getMonth()
+          );
+        } else {
+          // e.g., "2024"
+          endDate = new Date(parseInt(endParts[0]), 11, 31); // Dec 31st of the year
+        }
+      } else {
+        // If only a start date is given, use it for comparison
+        const startParts = start.split(" ");
+        if (startParts.length === 2) {
+          // e.g., "Jan 2025"
+          endDate = new Date(
+            startParts[1],
+            new Date(Date.parse(startParts[0] + " 1, 2000")).getMonth()
+          );
+        } else {
+          // e.g., "2023"
+          endDate = new Date(parseInt(startParts[0]), 0); // Jan 1st of the year
+        }
+      }
+      return endDate.getTime();
+    };
+    return parseDate(b.date) - parseDate(a.date);
+  });
+
   timelineData.forEach((item) => {
     const alignment = item.side === "right" ? "flex-row-reverse" : "";
     const iconBg = item.type === "work" ? "bg-purple-500" : "bg-green-500";
